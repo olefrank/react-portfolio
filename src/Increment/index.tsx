@@ -14,7 +14,7 @@ export default function Increment() {
   }
   return (
     <div>
-      <h1>Value: {value}</h1>
+      <h1 className="text-3xl font-bold underline">Value: {value}</h1>
       <div>
         <button onClick={onIncrement}>Increment</button>
         <button onClick={onReset}>Reset</button>
