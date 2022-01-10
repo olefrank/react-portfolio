@@ -6,7 +6,7 @@ import SearchField from "./SearchField";
 
 function App() {
   return (
-    <div>
+    <div className="prose">
       <nav>
         <ul>
           <li>
@@ -20,12 +20,14 @@ function App() {
           </li>
         </ul>
       </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="increment" element={<Increment />} />
-        <Route path="todos" element={<Todos />} />
-        <Route path="search-field" element={<SearchField />} />
-      </Routes>
+      <div className="w-screen">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="increment" element={<Increment />} />
+          <Route path="todos" element={<Todos />} />
+          <Route path="search-field" element={<SearchField />} />
+        </Routes>
+      </div>
     </div>
   );
 }
