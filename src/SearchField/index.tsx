@@ -3,7 +3,7 @@ import SearchFieldComponent from "../components/SearchField";
 export default function SearchField() {
   return (
     <div className="grid grid-cols-2 gap-4">
-      <div className="rounded-sm border border-gray-400 flex flex-col items-center justify-start">
+      <div className="rounded-sm border border-gray-400 flex flex-col items-center justify-start pt-4">
         <SearchFieldComponent />
       </div>
       <div>

@@ -44,13 +44,18 @@ export default function SearchField() {
   return (
     <div>
       <div className="relative inline-block">
-        <input className="p-1" autoFocus value={term} onChange={onChange} />
+        <input
+          className="p-1 border border-gray-400"
+          autoFocus
+          value={term}
+          onChange={onChange}
+        />
         {loading ? (
           <img
             role="progressbar"
             src={spinner}
             alt="Loading search results..."
-            className="absolute right-1 top-1 m-0 h-6"
+            className="absolute right-1 top-[6px] m-0 h-6"
           />
         ) : null}
       </div>
