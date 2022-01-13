@@ -16,7 +16,7 @@ export default function Increment() {
   return (
     <div className="grid grid-cols-2 gap-4">
       <div className="rounded-sm border border-gray-400 flex flex-col items-center justify-center">
-        <h1 className="m-0 mb-6 font-normal">{value}</h1>
+        <h1 className="m-0 mb-6 font-normal">Value: {value}</h1>
         <div className="flex gap-2">
           <Button onClick={onIncrement}>
             <span className="font-light">Increment</span>
@@ -26,7 +26,7 @@ export default function Increment() {
           </Button>
         </div>
       </div>
-      <div className="">
+      <div>
         <h1>Increment</h1>
         <h3>Description</h3>
         <p>Make a button that increments an integer when clicked.</p>

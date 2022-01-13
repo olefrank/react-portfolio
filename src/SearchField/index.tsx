@@ -1,12 +1,15 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import debounce from "lodash.debounce";
+import spinner from "./spinner.gif";
 
-const searchResults = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"];
+const SEARCH_RESULTS = ["a", "b", "c", "d", "e"];
+export const DEBOUNCE_TIMEOUT = 1000;
+export const SEARCH_RESULTS_LABEL = "Search results";
 
 // helper fn to simulate a async network search request
-async function doSearch(): Promise<string[]> {
+function doSearch(): Promise<string[]> {
   return new Promise((res, rej) => {
-    setTimeout(() => res(searchResults), 1000);
+    setTimeout(() => res(SEARCH_RESULTS), DEBOUNCE_TIMEOUT);
   });
 }
 
@@ -40,21 +43,39 @@ export default function SearchField() {
   }
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Search field</h1>
-      <div className="flex items-center">
-        <input
-          className={loading ? "spinner" : undefined}
-          autoFocus
-          value={term}
-          onChange={onChange}
-        />
+    <div className="grid grid-cols-2 gap-4">
+      <div className="rounded-sm border border-gray-400 flex flex-col items-center justify-start">
+        <div className="relative inline-block">
+          <input className="p-1" autoFocus value={term} onChange={onChange} />
+          {loading ? (
+            <img
+              role="progressbar"
+              src={spinner}
+              alt="Loading search results..."
+              className="absolute right-1 top-1 m-0 h-6"
+            />
+          ) : null}
+        </div>
+        {results.length ? (
+          <ul aria-label={SEARCH_RESULTS_LABEL}>
+            {results.map((result) => (
+              <li key={result}>{result}</li>
+            ))}
+          </ul>
+        ) : null}
       </div>
-      <ul>
-        {results.map((result) => (
-          <li key={result}>{result}</li>
-        ))}
-      </ul>
+      <div>
+        <h1>Search Field</h1>
+        <h3>Description</h3>
+        <p>Make a search field that does an async search</p>
+
+        <h3>Use cases</h3>
+        <ul>
+          <li>Search should be 'debounced' by 1 second</li>
+          <li>Show a spinner while loading search results</li>
+          <li>Clear search results list when input is changed</li>
+        </ul>
+      </div>
     </div>
   );
 }
