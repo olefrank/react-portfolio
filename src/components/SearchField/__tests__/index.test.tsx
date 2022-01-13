@@ -1,4 +1,4 @@
-import SearchField, { SEARCH_RESULTS_LABEL } from "..";
+import SearchField from "..";
 import {
   render,
   screen,
@@ -36,9 +36,7 @@ describe("SearchField", () => {
     await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
 
     // list of search result should be visible
-    expect(
-      screen.getByRole("list", { name: SEARCH_RESULTS_LABEL })
-    ).toBeInTheDocument();
+    expect(screen.getByRole("list")).toBeInTheDocument();
   });
   test("clear results when search term is changed", async () => {
     jest.useFakeTimers();
@@ -56,8 +54,6 @@ describe("SearchField", () => {
     userEvent.clear(screen.getByRole("textbox"));
 
     // list of search result should not be visible
-    expect(
-      screen.queryByRole("list", { name: SEARCH_RESULTS_LABEL })
-    ).not.toBeInTheDocument();
+    expect(screen.queryByRole("list")).not.toBeInTheDocument();
   });
 });

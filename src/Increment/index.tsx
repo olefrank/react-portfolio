@@ -1,30 +1,10 @@
-import { useState } from "react";
-import Button from "../components/Button";
+import IncrementComponent from "../components/Increment";
 
 export default function Increment() {
-  const [value, setValue] = useState(0);
-
-  // handle click on Increment
-  function onIncrement() {
-    setValue((prev) => prev + 1);
-  }
-
-  // handle click on Reset
-  function onReset() {
-    setValue(0);
-  }
   return (
     <div className="grid grid-cols-2 gap-4">
       <div className="rounded-sm border border-gray-400 flex flex-col items-center justify-center">
-        <h1 className="m-0 mb-6 font-normal">Value: {value}</h1>
-        <div className="flex gap-2">
-          <Button onClick={onIncrement}>
-            <span className="font-light">Increment</span>
-          </Button>
-          <Button onClick={onReset}>
-            <span className="font-light">Reset</span>
-          </Button>
-        </div>
+        <IncrementComponent />
       </div>
       <div>
         <h1>Increment</h1>
