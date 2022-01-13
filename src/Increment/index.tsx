@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "../components/Button";
 
 export default function Increment() {
   const [value, setValue] = useState(0);
@@ -13,11 +14,29 @@ export default function Increment() {
     setValue(0);
   }
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Value: {value}</h1>
-      <div>
-        <button onClick={onIncrement}>Increment</button>
-        <button onClick={onReset}>Reset</button>
+    <div className="grid grid-cols-2 gap-4">
+      <div className="rounded-sm border border-gray-400 flex flex-col items-center justify-center">
+        <h1 className="m-0 mb-6 font-normal">{value}</h1>
+        <div className="flex gap-2">
+          <Button onClick={onIncrement}>
+            <span className="font-light">Increment</span>
+          </Button>
+          <Button onClick={onReset}>
+            <span className="font-light">Reset</span>
+          </Button>
+        </div>
+      </div>
+      <div className="">
+        <h1>Increment</h1>
+        <h3>Description</h3>
+        <p>Make a button that increments an integer when clicked.</p>
+
+        <h3>Use cases</h3>
+        <ul>
+          <li>Counter should start out with value '0'</li>
+          <li>User should be able to increment counter by 1</li>
+          <li>User should be able to reset counter to '0'</li>
+        </ul>
       </div>
     </div>
   );
