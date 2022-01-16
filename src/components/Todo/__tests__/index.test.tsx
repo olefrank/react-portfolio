@@ -37,7 +37,7 @@ describe("Todos", () => {
     expect(screen.getByText("Total todos: 1, done: 0")).toBeInTheDocument();
 
     // mark todo as "Done"
-    userEvent.click(screen.getByRole("listitem", { name: todoTitle }));
+    userEvent.click(screen.getByRole("checkbox", { name: todoTitle }));
 
     // New todo should be marked as Done
     expect(screen.getByText("Total todos: 1, done: 1")).toBeInTheDocument();

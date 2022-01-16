@@ -1,86 +1,22 @@
-import { ChangeEvent, useRef, useState } from "react";
+import TodoComponent from "../components/Todo";
 
-type Todo = {
-  id: number;
-  value: string;
-  done: boolean;
-};
-
-const initialTodo: Todo = {
-  id: 1,
-  value: "",
-  done: false,
-};
-
-export default function Todos() {
-  const [tasks, setTasks] = useState<Todo[]>([]);
-  const [todo, setTodo] = useState<Todo>(initialTodo);
-
-  const idRef = useRef(initialTodo.id);
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  function onChangeTodo(e: ChangeEvent<HTMLInputElement>) {
-    const value = e.currentTarget.value;
-    setTodo((prev) => ({ ...prev, value }));
-  }
-
-  function onAddTodo() {
-    // add todo
-    setTasks((prev) => [...prev, todo]);
-
-    // increment id
-    idRef.current += 1;
-
-    // reset current todo
-    setTodo({ ...initialTodo, id: idRef.current });
-
-    // focus input again
-    inputRef.current?.focus();
-  }
-
-  function onDone(id: number) {
-    setTasks((prev) =>
-      // mark clicked task as done
-      prev.map((task) =>
-        task.id === id ? { ...task, done: !task.done } : task
-      )
-    );
-  }
-
-  const numTasksDone = tasks.filter((task) => task.done).length;
-
+export default function Todo() {
   return (
-    <div>
-      <div>
-        <h1 className="text-3xl font-bold underline">Add todo</h1>
-        <div>
-          <input
-            autoFocus
-            ref={inputRef}
-            value={todo.value}
-            onChange={onChangeTodo}
-          />
-          <button onClick={onAddTodo}>Add</button>
-        </div>
+    <div className="grid grid-cols-2 gap-8 divide-x">
+      <div className="flex flex-col items-center justify-start">
+        <TodoComponent />
       </div>
-      <div>
+      <div className="pl-8">
+        <h1>Todo</h1>
+        <h3>Description</h3>
+        <p>Make a Todo component to add and view todo tasks</p>
+
+        <h3>Use cases</h3>
         <ul>
-          <h1 className="text-3xl font-bold underline">Tasks</h1>
-          {tasks ? (
-            <>
-              <p>{`Total todos: ${tasks.length}, done: ${numTasksDone}`}</p>
-              {tasks.map((task) => (
-                <li
-                  aria-label={task.value}
-                  key={task.id}
-                  onClick={() => onDone(task.id)}
-                  className={task.done ? "line-through" : undefined}
-                >
-                  {task.value}
-                </li>
-              ))}
-            </>
-          ) : null}
+          <li>Existing tasks are shown in a list</li>
+          <li>New tasks can be added to the list</li>
+          <li>Tasks can be marked as done</li>
+          <li>Show total number of tasks and number of done tasks</li>
         </ul>
       </div>
     </div>

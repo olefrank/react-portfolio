@@ -2,11 +2,11 @@ import IncrementComponent from "../components/Increment";
 
 export default function Increment() {
   return (
-    <div className="grid grid-cols-2 gap-4">
-      <div className="rounded-sm border border-gray-400 flex flex-col items-center justify-center">
+    <div className="grid grid-cols-2 gap-8 divide-x">
+      <div className="flex flex-col items-center justify-start">
         <IncrementComponent />
       </div>
-      <div>
+      <div className="pl-8">
         <h1>Increment</h1>
         <h3>Description</h3>
         <p>Make a button that increments an integer when clicked.</p>
