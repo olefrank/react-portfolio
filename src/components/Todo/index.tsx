@@ -13,7 +13,7 @@ const initialTodo: Todo = {
   done: false,
 };
 
-export default function Todo() {
+export default function TodoComponent() {
   const [tasks, setTasks] = useState<Todo[]>([]);
   const [todo, setTodo] = useState<Todo>(initialTodo);
 

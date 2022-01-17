@@ -2,11 +2,11 @@ import TodoComponent from "../components/Todo";
 
 export default function Todo() {
   return (
-    <div className="grid grid-cols-2 gap-8 divide-x">
-      <div className="flex flex-col items-center justify-start">
+    <div className="grid grid-cols-12 divide-x">
+      <div className="col-span-8 flex flex-col items-center justify-start px-4">
         <TodoComponent />
       </div>
-      <div className="pl-8">
+      <div className="col-span-4 px-4">
         <h1>Todo</h1>
         <h3>Description</h3>
         <p>Make a Todo component to add and view todo tasks</p>
