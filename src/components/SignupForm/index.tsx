@@ -1,4 +1,6 @@
 import { useFormik } from "formik";
+import Button from "../Button";
+import Input from "../Input";
 import validationSchema from "./validation";
 
 const initialValues = {
@@ -23,7 +25,7 @@ export default function SignupForm() {
       <form onSubmit={formik.handleSubmit}>
         <div>
           <label htmlFor="firstName">First Name</label>
-          <input
+          <Input
             id="firstName"
             name="firstName"
             onChange={formik.handleChange}
@@ -36,7 +38,8 @@ export default function SignupForm() {
         </div>
 
         <div>
-          <input
+          <label htmlFor="lastName">Last Name</label>
+          <Input
             id="lastName"
             name="lastName"
             onChange={formik.handleChange}
@@ -50,7 +53,7 @@ export default function SignupForm() {
 
         <div>
           <label htmlFor="age">Age</label>
-          <input
+          <Input
             id="age"
             name="age"
             onChange={formik.handleChange}
@@ -64,7 +67,7 @@ export default function SignupForm() {
 
         <div>
           <label htmlFor="email">Email Address</label>
-          <input
+          <Input
             id="email"
             name="email"
             type="email"
@@ -77,7 +80,7 @@ export default function SignupForm() {
           ) : null}
         </div>
 
-        <button type="submit">Submit</button>
+        <Button type="submit">Submit</Button>
       </form>
     </div>
   );

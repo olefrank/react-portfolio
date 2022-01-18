@@ -1,21 +1,27 @@
-import React, { ReactElement, MouseEvent } from "react";
+import { ReactElement, ButtonHTMLAttributes } from "react";
+import spinner from "./spinner.gif";
 
-export type Props = {
-  color?: "white";
-  onClick: (event: MouseEvent<HTMLButtonElement>) => void;
-  children: any;
+export type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+  showSpinner?: boolean;
 };
-export default function Button({
-  color,
-  children,
-  onClick,
-}: Props): ReactElement {
+
+export default function Button({ showSpinner, ...props }: Props): ReactElement {
   return (
     <button
-      className="rounded-sm border border-sky-500 py-1 px-2 bg-sky-400 hover:bg-sky-600 text-white"
-      onClick={onClick}
+      className="rounded-sm border border-sky-500 py-2 px-3 bg-sky-400 hover:bg-sky-600 text-white"
+      {...props}
     >
-      {children}
+      <div className="flex gap-4 items-center">
+        {showSpinner ? (
+          <img
+            className="h-6 m-0"
+            role="progressbar"
+            src={spinner}
+            alt="Loading..."
+          />
+        ) : null}
+        <span className="m-0">{props.children}</span>
+      </div>
     </button>
   );
 }

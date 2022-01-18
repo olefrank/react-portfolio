@@ -1,6 +1,7 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import debounce from "lodash.debounce";
 import spinner from "./spinner.gif";
+import Input from "../Input";
 
 const SEARCH_RESULTS = ["a", "b", "c", "d", "e"];
 export const DEBOUNCE_TIMEOUT = 1000;
@@ -44,12 +45,7 @@ export default function SearchField() {
   return (
     <div>
       <div className="relative inline-block">
-        <input
-          className="p-1 border border-gray-400"
-          autoFocus
-          value={term}
-          onChange={onChange}
-        />
+        <Input autoFocus value={term} onChange={onChange} />
         {loading ? (
           <img
             role="progressbar"
