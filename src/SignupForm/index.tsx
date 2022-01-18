@@ -9,11 +9,14 @@ export default function SignupForm() {
       <div className="col-span-4 px-4">
         <h1>Signup form</h1>
         <h3>Description</h3>
-        <p>Make a Signup form that ...</p>
+        <p>Make a form where users can sign up</p>
 
         <h3>Use cases</h3>
         <ul>
-          <li>xxx</li>
+          <li>Validate inputs after being touched</li>
+          <li>Show error messages for each field</li>
+          <li>All fields are required</li>
+          <li>Password fields must match</li>
         </ul>
       </div>
     </div>
