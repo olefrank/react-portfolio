@@ -36,7 +36,7 @@ export default function NavBar(): ReactElement {
             Todos
           </NavLink>
         </li>
-        <li className="">
+        <li className="after:content-['|'] after:mx-1">
           <NavLink
             className={({ isActive }) =>
               classNames("no-underline", { "text-sky-300": isActive })
@@ -44,6 +44,16 @@ export default function NavBar(): ReactElement {
             to="search-field"
           >
             SearchField
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            className={({ isActive }) =>
+              classNames("no-underline", { "text-sky-300": isActive })
+            }
+            to="signup-form"
+          >
+            Signup form
           </NavLink>
         </li>
       </ul>

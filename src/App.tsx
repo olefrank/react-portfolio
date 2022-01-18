@@ -3,6 +3,7 @@ import Home from "./Home";
 import Increment from "./Increment";
 import Todos from "./Todo";
 import SearchField from "./SearchField";
+import SignupForm from "./SignupForm";
 import NavBar from "./components/NavBar";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="increment" element={<Increment />} />
           <Route path="todos" element={<Todos />} />
           <Route path="search-field" element={<SearchField />} />
+          <Route path="signup-form" element={<SignupForm />} />
         </Routes>
       </div>
     </div>
