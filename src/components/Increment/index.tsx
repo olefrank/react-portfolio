@@ -15,7 +15,7 @@ export default function Increment() {
   }
   return (
     <div>
-      <h1 className="m-0 mb-6 font-normal">Value: {value}</h1>
+      <h2 className="m-0 mb-6 font-normal">Value: {value}</h2>
       <div className="flex gap-2">
         <Button onClick={onIncrement}>
           <span className="font-light">Increment</span>

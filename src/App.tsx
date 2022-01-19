@@ -11,9 +11,9 @@ const { increment, todo, searchField, signupForm } = paths;
 
 function App() {
   return (
-    <div className="prose">
-      <NavBar />
-      <div className="w-screen p-4">
+    <div className="prose flex justify-center flex-wrap max-w-full">
+      <div className="flex flex-col items-center w-4/5">
+        <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path={increment} element={<Increment />} />

@@ -70,9 +70,9 @@ export default function TodoComponent() {
       <div>
         {tasks ? (
           <>
-            <h2 className="mb-0">Tasks</h2>
-            <h3 className="font-normal text-base text-gray-500 italic">{`Total todos: ${tasks.length}, done: ${numTasksDone}`}</h3>
-            <div role="list">
+            <h3 className="mb-0">Tasks</h3>
+            <div className="text-gray-500 italic">{`Total todos: ${tasks.length}, done: ${numTasksDone}`}</div>
+            <div role="list" className="mt-4">
               {tasks.map((task) => (
                 <div key={task.id} className="mb-3 " role="listitem">
                   <input
