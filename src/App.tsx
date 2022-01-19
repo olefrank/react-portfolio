@@ -5,6 +5,9 @@ import Todos from "./Todo";
 import SearchField from "./SearchField";
 import SignupForm from "./SignupForm";
 import NavBar from "./components/NavBar";
+import { paths } from "./constants";
+
+const { increment, todo, searchField, signupForm } = paths;
 
 function App() {
   return (
@@ -13,10 +16,10 @@ function App() {
       <div className="w-screen p-4">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="increment" element={<Increment />} />
-          <Route path="todos" element={<Todos />} />
-          <Route path="search-field" element={<SearchField />} />
-          <Route path="signup-form" element={<SignupForm />} />
+          <Route path={increment} element={<Increment />} />
+          <Route path={todo} element={<Todos />} />
+          <Route path={searchField} element={<SearchField />} />
+          <Route path={signupForm} element={<SignupForm />} />
         </Routes>
       </div>
     </div>

@@ -1,8 +1,10 @@
 import classNames from "classnames";
 import { ReactElement } from "react";
 import { NavLink } from "react-router-dom";
+import { paths } from "../../constants";
 
 export default function NavBar(): ReactElement {
+  const { increment, todo, searchField, signupForm } = paths;
   return (
     <nav>
       <ul className="flex p-0 list-none">
@@ -21,7 +23,7 @@ export default function NavBar(): ReactElement {
             className={({ isActive }) =>
               classNames("mr-1", "no-underline", { "text-sky-300": isActive })
             }
-            to="increment"
+            to={increment}
           >
             Increment
           </NavLink>
@@ -31,7 +33,7 @@ export default function NavBar(): ReactElement {
             className={({ isActive }) =>
               classNames("mr-1", "no-underline", { "text-sky-300": isActive })
             }
-            to="todos"
+            to={todo}
           >
             Todos
           </NavLink>
@@ -41,7 +43,7 @@ export default function NavBar(): ReactElement {
             className={({ isActive }) =>
               classNames("no-underline", { "text-sky-300": isActive })
             }
-            to="search-field"
+            to={searchField}
           >
             SearchField
           </NavLink>
@@ -51,7 +53,7 @@ export default function NavBar(): ReactElement {
             className={({ isActive }) =>
               classNames("no-underline", { "text-sky-300": isActive })
             }
-            to="signup-form"
+            to={signupForm}
           >
             Signup form
           </NavLink>
