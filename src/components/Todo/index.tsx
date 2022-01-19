@@ -1,4 +1,4 @@
-import { ChangeEvent, useRef, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import Button from "../Button";
 
 type Todo = {
@@ -20,12 +20,7 @@ export default function TodoComponent() {
   const idRef = useRef(initialTodo.id);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  function onChangeTodo(e: ChangeEvent<HTMLInputElement>) {
-    const value = e.currentTarget.value;
-    setTodo((prev) => ({ ...prev, value }));
-  }
-
-  function onAddTodo() {
+  const onAddTodo = useCallback(() => {
     // add todo
     setTasks((prev) => [...prev, todo]);
 
@@ -37,6 +32,27 @@ export default function TodoComponent() {
 
     // focus input again
     inputRef.current?.focus();
+  }, [todo]);
+
+  // submit when press ENTER
+  useEffect(() => {
+    const listener = (event: KeyboardEvent) => {
+      if (event.code === "Enter" || event.code === "NumpadEnter") {
+        event.preventDefault();
+        onAddTodo();
+      }
+    };
+
+    document.addEventListener("keydown", listener);
+
+    return () => {
+      document.removeEventListener("keydown", listener);
+    };
+  }, [onAddTodo]);
+
+  function onChangeTodo(e: ChangeEvent<HTMLInputElement>) {
+    const value = e.currentTarget.value;
+    setTodo((prev) => ({ ...prev, value }));
   }
 
   function onDone(e: ChangeEvent) {
