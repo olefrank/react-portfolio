@@ -14,4 +14,4 @@ export const INITIAL_VALUES = {
   terms: false,
 };
 
-export const NATIONALITIES = ["danish", "english", "swedish"];
+export const NATIONALITIES = ["Danish", "English", "Swedish"];

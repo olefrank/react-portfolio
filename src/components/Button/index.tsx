@@ -1,5 +1,5 @@
 import { ReactElement, ButtonHTMLAttributes } from "react";
-import spinner from "./spinner.gif";
+import spinner from "../../assets/spinner.gif";
 
 export type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   showSpinner?: boolean;

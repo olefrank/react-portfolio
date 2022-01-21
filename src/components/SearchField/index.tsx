@@ -1,6 +1,6 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import debounce from "lodash.debounce";
-import spinner from "./spinner.gif";
+import spinner from "../../assets/spinner.gif";
 import Input from "../Input";
 
 const SEARCH_RESULTS = ["a", "b", "c", "d", "e"];

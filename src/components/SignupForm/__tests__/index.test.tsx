@@ -2,6 +2,7 @@ import SignupForm from "..";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import * as helpers from "../utils";
+import { NATIONALITIES } from "../constants";
 
 describe("SignupForm", () => {
   test("should validate inputs after being touched", async () => {
@@ -48,7 +49,7 @@ describe("SignupForm", () => {
     const gender = "male";
     const email = "me@email.com";
     const password = "1234";
-    const nationality = "danish";
+    const nationality = NATIONALITIES[0];
 
     render(<SignupForm />);
 
